@@ -1,0 +1,334 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F3E9DA;
+    min-height: 100vh;
+    padding-top: 120px; /* espaço do navbar */
+    transition: background 0.3s ease, color 0.3s ease;
+}
+/* ===================== NAVBAR ===================== */
+
+.opcoes {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #B22222;
+  padding: 30px 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.container-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+}
+
+/* LINKS ESQUERDA */
+.nav-esquerda {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-esquerda a {
+  text-decoration: none;
+  color: white;
+  font-size: 17px;
+  letter-spacing: 2px;
+  padding: 6px;
+  margin: 0 10px;
+}
+
+.nav-esquerda a:hover {
+  color: #8B0000;
+}
+
+/* DROPDOWN */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #B22222;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 10px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+.dropdown-content a:hover {
+  background-color: #d1c89f;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.text {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 6px;
+    width: 100%;
+    margin: 0 10px;
+    text-decoration: none;
+    color: white;
+    letter-spacing: 2px;
+    font-size: 17px;
+}
+
+/* ===================== USUÁRIO / SUBMENU ===================== */
+
+.usuario-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#usuario-icone {
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+}
+
+.submenu-usuario {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background:#B22222;
+  padding: 10px;
+  border-radius: 5px;
+  flex-direction: column;
+  z-index: 999;
+}
+
+.submenu-usuario a {
+  color: white;
+  padding: 6px 10px;
+  display: block;
+  text-decoration: none;
+}
+
+.submenu-usuario a:hover {
+  background-color: #7c1b23;
+}
+
+/* ===================== BOTÕES DARK/LIGHT ===================== */
+
+#dark-btn, #light-btn {
+    width: 40px;
+    position: fixed;
+    top: 300px;
+    right: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#dark-btn:hover, #light-btn:hover {
+    transform: translateY(-5px);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 20px; /* pedido do usuário */
+    font-size: 32px;
+    color: #B22222;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* ==========================================================
+   TÍTULOS DAS SEÇÕES
+========================================================== */
+h2 {
+    text-align: center;
+    margin: 32px 0 15px 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: #8B0000;
+    letter-spacing: 1px;
+}
+
+/* ==========================================================
+   CARD DO PRODUTO
+========================================================== */
+.produto {
+    width: 92%;
+    max-width: 800px;
+
+    background: white;
+    padding: 18px 20px;
+    margin: 12px auto;
+
+    border-radius: 10px;
+    border: 1px solid #dcdcdc;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+}
+
+/* Card hover */
+.produto:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+/* Nome dos produtos */
+.produto span {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* ==========================================================
+   BOTÕES
+========================================================== */
+.btn {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    transition: 0.25s ease;
+    color: white;
+}
+
+/* DISPONÍVEL (VERDE) */
+.disponivel {
+    background-color: #32CD32;
+}
+
+.disponivel:hover {
+    background-color: #2cad2c;
+    transform: scale(1.05);
+}
+
+/* INDISPONÍVEL (VERMELHO) */
+.indisponivel {
+    background-color: #E32636;
+}
+
+.indisponivel:hover {
+    background-color: #c41d2b;
+    transform: scale(1.05);
+}
+
+/* ==========================================================
+   DARK MODE
+========================================================== */
+body.dark-mode {
+    background-color: #1f1f1f;
+    color: #f2f2f2;
+}
+
+body.dark-mode h1,
+body.dark-mode h2 {
+    color: #ffd3d0;
+}
+
+body.dark-mode .produto {
+    background-color: #2b2b2b;
+    border-color: #494949;
+    box-shadow: 0 4px 12px rgba(255,255,255,0.05);
+}
+
+body.dark-mode .produto span {
+    color: #f2f2f2;
+}
+
+body.dark-mode .submenu-usuario {
+  background: #1e1e1e;
+}
+body.dark-mode .submenu-usuario a:hover {
+  background-color: #333;
+}
+
+body.dark-mode header,
+body.dark-mode nav
+{
+  color: #f1f1f1;
+  background-color: #1e1e1e ;
+}
+body.dark-mode .dropdown-content {
+    background-color: #2c2c2c;;
+}
+
+
+/* ==========================================================
+   RESPONSIVIDADE
+========================================================== */
+
+@media (max-width: 768px) { /* tablets */
+    .produto {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 22px;
+    }
+
+    .produto span {
+        font-size: 17px;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 12px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) { /* celulares */
+    .produto {
+        width: 94%;
+        padding: 18px;
+    }
+
+    .produto span {
+        font-size: 16px;
+    }
+
+    .btn {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    #dark-btn,
+    #light-btn {
+        width: 40px;
+        top: 300px;
+        right: 6px;
+    }
+}

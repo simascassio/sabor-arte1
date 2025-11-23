@@ -1,0 +1,338 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  
+}
+body, html {
+   background-color: #F3E9DA; /* Cor de fundo beige suave */
+   margin: 0;
+   padding: 0;
+   
+   max-width: 100%;
+}
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    background-color:  #F3E9DA;
+    overflow-x: hidden;
+    flex-direction: column;
+    padding-top: 100px; /* espaço por causa do header fixo */
+    
+    
+}
+
+/* NAVBAR GERAL */
+.opcoes {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #B22222; /* vermelho institucional */
+  padding: 30px 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.container-navbar {
+  display: flex;
+  justify-content: space-between; /* links na esquerda, ícone na direita */
+  align-items: center;
+  padding: 0 30px;
+}
+
+/* LINKS ESQUERDA */
+.nav-esquerda {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-esquerda a {
+  text-decoration: none;
+  color: white;
+  font-size: 17px;
+  letter-spacing: 2px;
+  padding: 6px;
+  margin: 0 10px;
+}
+
+.nav-esquerda a:hover {
+  color: #8B0000;
+}
+
+/* DROPDOWN */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #B22222;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 10px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+.dropdown-content a:hover {
+  background-color: #d1c89f;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.text {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 6px;
+    width: 100%;
+    margin: 0 10px;
+    text-decoration: none;
+    color: white;
+    letter-spacing: 2px;
+    font-size: 17px;
+}
+
+.usuario-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#usuario-icone {
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+}
+
+.submenu-usuario {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background: #B22222;
+  padding: 10px;
+  border-radius: 5px;
+  flex-direction: column;
+  z-index: 999;
+}
+
+.submenu-usuario a {
+  color: white;
+  padding: 6px 10px;
+  display: block;
+  text-decoration: none;
+}
+
+.submenu-usuario a:hover {
+  background-color: #7c1b23;
+}
+
+#nome-usuario {
+    font-weight: normal !important;
+    font-family: inherit !important;
+    font-size: inherit !important;
+    font-size: 17px !important;
+}
+
+
+/* ====================== LOGIN ====================== */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* DARK/LIGHT MODE BUTTON (tamanho mantido em 40px) */
+#dark-btn, #light-btn {
+  width: 40px;
+  position: fixed;
+  top: 300px;
+  right: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+body.dark-mode header,
+body.dark-mode footer,
+body.dark-mode nav,
+body.dark-mode section{
+  color: #f1f1f1;
+  background-color: #1e1e1e ;
+}
+
+body.dark-mode .dropdown-content {
+    background-color: #2c2c2c;;
+}
+
+#dark-btn:hover, #light-btn:hover {
+  transform: translateY(-5px);
+}
+
+/* ====================== DARK MODE ====================== */
+body.dark-mode {
+  background: #1e1e1e;
+  color: #f1f1f1;
+  animation: none; /* remove animação de gradiente */
+}
+
+body.dark-mode .opcoes {
+  background-color: #1e1e1e /* navbar escura */
+}
+
+body.dark-mode .container-login {
+  background-color: #2c2c2c;
+}
+
+body.dark-mode input {
+  background-color: #2c2c2c;
+  color: #fff;
+  border-color: #555;
+}
+
+body.dark-mode .input-icon {
+  color: #f1f1f1;
+}
+
+body.dark-mode .btn {
+  background-color: #8B0000;
+}
+
+body.dark-mode .btn:hover {
+  background-color: #250404;
+}
+
+body.dark-mode .cadastro a {
+  color: #B22222;
+}
+
+/* ====================== DASHBOARD ====================== */
+.dashboard {
+  width: 80%;
+  max-width: 1200px;
+  margin: 100px auto 50px; /* Espaço pro navbar fixo */
+  text-align: center;
+}
+
+.dashboard h1 {
+  font-size: 28px;
+  color: #B22222;
+  margin-bottom: 40px;
+  letter-spacing: 2px;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background-color: #fff; /* Ajustado pra branco, mas com gradiente no body, fica harmônico */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-icon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 15px;
+}
+
+.card h2 {
+  font-size: 20px;
+  color: #B22222;
+  margin-bottom: 10px;
+}
+
+.numero {
+  font-size: 36px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.btn-card {
+  display: inline-block;
+  background-color: #B22222;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-card:hover {
+  background-color: #8B0000;
+}
+
+/* Dark Mode Ajustes para Dashboard */
+body.dark-mode .dashboard h1 {
+  color: #B22222; /* Mantém vermelho pra destaque */
+}
+
+body.dark-mode .card {
+  background-color: #2c2c2c;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .card h2 {
+  color: #B22222;
+}
+
+body.dark-mode .numero {
+  color: #f1f1f1;
+}
+
+body.dark-mode .btn-card {
+  background-color: #8B0000;
+}
+
+body.dark-mode .btn-card:hover {
+  background-color: #250404;
+}
+
+/* Animação do Gradiente (mantida igual) */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.numero {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #B22222;
+    animation: pulse 1.5s ease-in-out;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}

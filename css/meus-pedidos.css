@@ -1,0 +1,252 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    background-color: #F3E9DA; /* bege suave */
+    padding-top: 100px; /* espaço da navbar */
+    display: block; /* remove centralização global */
+}
+
+/* ===================== NAVBAR ===================== */
+
+.opcoes {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #B22222;
+  padding: 30px 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.container-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+}
+
+/* LINKS ESQUERDA */
+.nav-esquerda {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-esquerda a {
+  text-decoration: none;
+  color: white;
+  font-size: 17px;
+  letter-spacing: 2px;
+  padding: 6px;
+  margin: 0 10px;
+}
+
+.nav-esquerda a:hover {
+  color: #8B0000;
+}
+
+/* DROPDOWN */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #B22222;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 10px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+.dropdown-content a:hover {
+  background-color: #d1c89f;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.text {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 6px;
+    width: 100%;
+    margin: 0 10px;
+    text-decoration: none;
+    color: white;
+    letter-spacing: 2px;
+    font-size: 17px;
+}
+
+/* ===================== USUÁRIO / SUBMENU ===================== */
+
+.usuario-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#usuario-icone {
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+}
+
+.submenu-usuario {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background:#B22222;
+  padding: 10px;
+  border-radius: 5px;
+  flex-direction: column;
+  z-index: 999;
+}
+
+.submenu-usuario a {
+  color: white;
+  padding: 6px 10px;
+  display: block;
+  text-decoration: none;
+}
+
+.submenu-usuario a:hover {
+  background-color: #7c1b23;
+}
+
+/* ===================== BOTÕES DARK/LIGHT ===================== */
+
+#dark-btn, #light-btn {
+    width: 40px;
+    position: fixed;
+    top: 300px;
+    right: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#dark-btn:hover, #light-btn:hover {
+    transform: translateY(-5px);
+}
+
+/* ===================== CARDS DOS PEDIDOS ===================== */
+
+.titulo-pedidos {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0 40px 20px; /* mesmo alinhamento dos cards */
+    margin-top: 140px;   /* espaço da navbar */
+    color: #333;
+    letter-spacing: 1px;
+}
+
+
+.bloco-pedido {
+  background: white;
+  border-left: 6px solid #b22222;
+  border-radius: 12px;
+  padding: 26px 26px;
+
+  /* alinhado à esquerda + mais espaço */
+  margin: 28px 40px;
+  max-width: 1100px;
+  width: calc(100% - 80px);
+
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  transition: 0.3s ease;
+}
+
+.bloco-pedido:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.16);
+}
+
+/* LISTA DE ITENS */
+.lista-itens {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.lista-itens li {
+  background: #fff4e9;
+  padding: 12px 16px;
+  font-size: 14px;
+  border-radius: 8px;
+  border-left: 5px solid #b22222;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.lista-itens li::before {
+  content: "🍕";
+  font-size: 18px;
+}
+
+.total-pedido {
+  margin-top: 14px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* ===================== DARK MODE ===================== */
+
+body.dark-mode .bloco-pedido {
+  background: #1a1a1b;
+  color: #e6e6e6;
+  border-color: rgba(255,255,255,0.05);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.55);
+}
+
+body.dark-mode .lista-itens li {
+  background: rgba(255,255,255,0.05);
+  color: #e6e6e6;
+}
+
+body.dark-mode .lista-itens li .price {
+  color: rgb(255, 175, 175);
+}
+
+body.dark-mode .total-pedido {
+  color: #e6e6e6;
+}
+body.dark-mode .opcoes {
+  background-color: #1e1e1e;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+body.dark-mode {
+    background-color: #1e1e1e;
+}
+body.dark-mode .titulo-pedidos{
+    color: #e6e6e6;
+}
+
+body.dark-mode .submenu-usuario{
+
+   color: #f1f1f1;
+  background-color: #1e1e1e ;
+ 
+}
+

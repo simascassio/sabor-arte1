@@ -1,0 +1,547 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    background-color: #F3E9DA; /* bege suave */
+    padding-top: 100px; /* espaço da navbar */
+    display: block; /* remove centralização global */
+}
+
+/* ===================== NAVBAR ===================== */
+
+.opcoes {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #B22222;
+  padding: 30px 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.container-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+}
+
+/* LINKS ESQUERDA */
+.nav-esquerda {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-esquerda a {
+  text-decoration: none;
+  color: white;
+  font-size: 17px;
+  letter-spacing: 2px;
+  padding: 6px;
+  margin: 0 10px;
+}
+
+.nav-esquerda a:hover {
+  color: #8B0000;
+}
+
+/* DROPDOWN */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #B22222;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 10px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+.dropdown-content a:hover {
+  background-color: #d1c89f;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.text {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 6px;
+    width: 100%;
+    margin: 0 10px;
+    text-decoration: none;
+    color: white;
+    letter-spacing: 2px;
+    font-size: 17px;
+}
+
+/* ===================== USUÁRIO / SUBMENU ===================== */
+
+.usuario-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#usuario-icone {
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+}
+
+.submenu-usuario {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background:#B22222;
+  padding: 10px;
+  border-radius: 5px;
+  flex-direction: column;
+  z-index: 999;
+}
+
+.submenu-usuario a {
+  color: white;
+  padding: 6px 10px;
+  display: block;
+  text-decoration: none;
+}
+
+.submenu-usuario a:hover {
+  background-color: #7c1b23;
+}
+
+/* ===================== BOTÕES DARK/LIGHT ===================== */
+
+#dark-btn, #light-btn {
+    width: 40px;
+    position: fixed;
+    top: 300px;
+    right: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#dark-btn:hover, #light-btn:hover {
+    transform: translateY(-5px);
+}
+/* ========================================================= */
+/*        ESTILO DAS TABELAS DO HISTÓRICO (PEDIDO-BOX)       */
+/* ========================================================= */
+
+.pedido-box {
+    width: 95%;
+    max-width: 900px;
+    margin: 30px auto;
+    background: #fff7ed; /* bege claro do seu padrão */
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #d8c7a0;
+    box-shadow: 0 0 12px rgba(0,0,0,0.20);
+}
+
+/* Cabeçalho do bloco */
+.pedido-box .titulo {
+    font-size: 18px;
+    font-weight: bold;
+    color: #8B0000;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #B22222;
+    line-height: 1.6;
+}
+
+/* ------------------ TABELA ------------------ */
+.pedido-box table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.pedido-box th {
+    background: #B22222;
+    color: white;
+    padding: 12px;
+    letter-spacing: 1px;
+    text-align: left;
+    font-size: 16px;
+}
+
+.pedido-box td {
+    background: #ffffff;
+    padding: 10px;
+    border-bottom: 1px solid #e0cdb3;
+    font-size: 15px;
+}
+
+.pedido-box tr:hover td {
+    background: #ffe8d6;
+}
+
+/* ------------------ TOTAL ------------------ */
+.total-final {
+    margin-top: 18px;
+    text-align: right;
+    font-size: 19px;
+    font-weight: bold;
+    color: #8B0000;
+    background: #f9d7c3;
+    padding: 12px;
+    border-radius: 8px;
+    border-left: 6px solid #B22222;
+}
+ body.dark-mode .pedido-box {
+   background:  #1e1e1e;
+   border: 1px solid #555555;
+   box-shadow: 0 0 12px rgba(0,0,0,0.7);
+    color: #e6e6e6;
+ }
+
+ body.dark-mode .pedido-box .titulo {
+  background:  #1e1e1e;
+   box-shadow: 0 0 12px rgba(0,0,0,0.7);
+   color: #e6e6e6;
+ }
+
+ 
+
+body.dark-mode header,
+body.dark-mode nav
+{
+  color: #f1f1f1;
+  background-color: #1e1e1e ;
+}
+
+body.dark-mode .dropdown-content {
+    background-color: #2c2c2c;;
+}
+
+#dark-btn:hover, #light-btn:hover {
+  transform: translateY(-5px);
+}
+
+/* ====================== DARK MODE ====================== */
+body.dark-mode {
+  background: #1e1e1e;
+  color: #f1f1f1;
+  animation: none; /* remove animação de gradiente */
+}
+
+body.dark-mode .opcoes {
+  background-color: #1e1e1e /* navbar escura */
+}
+
+
+body.dark-mode table {
+  background-color: #2c2c2c;
+  color: #f1f1f1;
+}
+
+body.dark-mode th {
+  background-color: #8B0000;
+}
+
+body.dark-mode tr:nth-child(even) {
+  background-color: #333;
+}
+
+body.dark-mode table tr {
+  border-color: #444;
+}
+
+body.dark-mode table td {
+  border-bottom-color: #555;
+}
+
+body.dark-mode table td:before {
+  color: #ddd;
+}
+body.dark-mode .total-final {
+  background: #333;
+  color: #f1f1f1;
+  border-left-color: #8B0000;
+}
+body.dark-mode .submenu-usuario {
+  background: #1e1e1e;
+}
+body.dark-mode .submenu-usuario a:hover {
+  background-color: #333;
+}
+body.dark-mode tbody tr:hover td {
+  background: #444;
+}
+
+/* ====================== AJUSTES FINAIS DO DARK MODE ====================== */
+
+/* Caixa principal */
+body.dark-mode .pedido-box {
+    background: #252525 !important;
+    border-color: #444 !important;
+    color: #f1f1f1 !important;
+}
+
+/* Título do pedido */
+body.dark-mode .pedido-box .titulo {
+    color: #f1f1f1 !important;
+    border-bottom-color: #8B0000 !important;
+}
+
+/* Cabeçalho da tabela */
+body.dark-mode .pedido-box th {
+    background: #8B0000 !important;
+    color: #ffffff !important;
+}
+
+/* Células da tabela */
+body.dark-mode .pedido-box td {
+    background: #2b2b2b !important;
+    color: #e6e6e6 !important;
+    border-bottom-color: #444 !important;
+}
+
+/* Hover nas linhas */
+body.dark-mode .pedido-box tr:hover td {
+    background: #3a3a3a !important;
+}
+
+/* Total final */
+body.dark-mode .total-final {
+    background: #2a2a2a !important;
+    color: #ffffff !important;
+    border-left-color: #8B0000 !important;
+}
+body.dark-mode .filtros {
+    background: #252525 !important;
+    border-color: #444 !important;
+    color: #f1f1f1 !important;
+}
+
+body.dark-mode .dropdown-content {
+    background: #2b2b2b !important;
+}
+body.dark-mode .total-fixed{
+    background: #2a2a2a ;
+    color: #ffffff ;
+}
+
+body.dark-mode .submenu-usuario {
+    background: #1e1e1e !important;
+}
+
+body.dark-mode .submenu-usuario a:hover {
+    background: #333 !important;
+}
+
+/* ==========================
+   FILTROS DO HISTÓRICO
+   ========================== */
+.filtros {
+    margin: 30px auto;
+    padding: 20px;
+    width: 95%;
+    max-width: 1100px;
+    background: #fff7e6; /* fundo creme claro */
+    border: 2px solid #e6d2b5; 
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Título “Período” */
+.filtros label {
+    font-weight: bold;
+    color: #5a3825;
+}
+
+/* Select */
+.filtros select {
+    padding: 7px 10px;
+    border-radius: 8px;
+    border: 2px solid #d7bfa3;
+    background-color: #f9eee0;
+    color: #4a2d1a;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    transition: 0.2s;
+}
+
+.filtros select:hover {
+    border-color: #5c0e0e;
+}
+
+/* Datas personalizadas */
+#custom-dates input[type="date"] {
+    padding: 7px 10px;
+    border-radius: 8px;
+    border: 2px solid #d7bfa3;
+    background-color: #fef4e8;
+    color: #4a2d1a;
+    outline: none;
+    transition: 0.2s;
+}
+
+#custom-dates input[type="date"]:hover {
+    border-color:#5c0e0e ;
+}
+
+/* Botão Aplicar */
+.filtros button {
+    padding: 8px 18px;
+    background-color: #B22222; 
+    border: none;
+    color: white;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.25);
+}
+
+.filtros button:hover {
+    background-color: #5c0e0e;
+    transform: scale(1.03);
+}
+
+/* Info da página */
+.filtros small {
+    color: #5a3825;
+    font-size: 14px;
+}
+
+/* ==========================
+   LISTA DE PEDIDOS
+   ========================== */
+
+.pedido-box {
+    width: 95%;
+    max-width: 1100px;
+    background: #ffffff;
+    border: 2px solid #e6d2b5;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 25px auto;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.pedido-box .titulo {
+    font-size: 18px;
+    font-weight: bold;
+    color: #4a2d1a;
+    margin-bottom: 12px;
+}
+
+.pedido-box table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+}
+
+.pedido-box th {
+    background-color: #B22222;
+    color: white;
+    padding: 10px;
+}
+
+.pedido-box td {
+    border-bottom: 1px solid #e6d2b5;
+    padding: 8px;
+    color: #4a2d1a;
+}
+
+.total-final {
+    text-align: right;
+    font-size: 17px;
+    font-weight: bold;
+    color: #5a3825;
+}
+
+/* ==========================
+   TOTAL FIXO DO RODAPÉ
+   ========================== */
+
+.total-fixed {
+    width: 100%;
+    background: #fff3d6;
+    border-top: 3px solid #e6d2b5;
+    padding: 15px;
+    text-align: center;
+    margin-top: 40px;
+    font-size: 18px;
+    color: #B22222;
+    font-weight: bold;
+    position: sticky;
+    bottom: 0;
+  }
+
+  .total-fixed span{
+    color: #2fa021;
+    cursor: pointer;
+    font-weight: bolder;
+    transition: all 0.2s;
+  }
+
+  .total-fixed span:hover{
+    color: #2d573c;
+    font-size: 22px;
+  }
+
+/* ==========================
+   PAGINAÇÃO
+   ========================== */
+
+.pagination {
+    margin: 20px auto;
+    text-align: center;
+    font-size: 18px;
+}
+
+.pagination a,
+.pagination span {
+    padding: 8px 14px;
+    margin: 5px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.pagination a {
+    background: #B22222;
+    color: #fff;
+}
+
+.pagination a:hover {
+    background: #751515;
+    transform: scale(1.03);
+}
+
+.pagination span.active {
+    background: #5a3825;
+    color: white;
+}
